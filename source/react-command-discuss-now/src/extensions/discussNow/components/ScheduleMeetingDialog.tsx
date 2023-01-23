@@ -1,20 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { BaseDialog, IDialogConfiguration } from '@microsoft/sp-dialog';
-import {
-  PrimaryButton,
-  CommandButton,
-  TextField,
-  Dropdown,
-  IDropdownOption,
-  DialogFooter,
-  DialogContent
-} from 'office-ui-fabric-react';
-
+import {PrimaryButton,CommandButton} from '@fluentui/react/lib/Button';
+import { Dropdown,  IDropdownOption  } from '@fluentui/react/lib/Dropdown';
+import { TextField  } from '@fluentui/react/lib/TextField';
+import { DialogFooter, DialogContent  } from '@fluentui/react/lib/Dialog';
 import { DateTimePicker } from './DateTimePicker';
 import { ListViewCommandSetContext } from '@microsoft/sp-listview-extensibility';
 import { Dialog } from '@microsoft/sp-dialog';
-import { MSGraphClient } from "@microsoft/sp-http";
+import { MSGraphClientV3 } from "@microsoft/sp-http";
 
 import styles from './ScheduleMeetingDialog.module.scss';
 import * as strings from 'DiscussNowCommandSetStrings';
@@ -211,7 +205,7 @@ export default class ScheduleMeetingDialog extends BaseDialog {
           }
         };
 
-        const graphClient: MSGraphClient = await this.context.msGraphClientFactory.getClient();
+        const graphClient: MSGraphClientV3 = await this.context.msGraphClientFactory.getClient('3');
         response = await graphClient
           .api(`groups/${groupId}/calendar/events`)
           .version("v1.0")

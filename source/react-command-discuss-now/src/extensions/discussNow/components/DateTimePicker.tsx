@@ -4,23 +4,9 @@ import { IDateTimePickerProps } from './IDateTimePickerProps';
 import { IDateTimePickerState } from './IDateTimePickerState';
 
 /**
- * Common Infrastructure
- */
-import {
-  BaseComponent,
-  assign
-} from 'office-ui-fabric-react/lib/Utilities';
-
-/**
- * Label
- */
-import { Label } from 'office-ui-fabric-react/lib/Label';
-
-/**
  * Text Field
  */
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
-import { Icon } from 'office-ui-fabric-react/lib/Icon';
 
 /**
  * Date Picker
